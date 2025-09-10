@@ -1,0 +1,376 @@
+Para incluir a imagem `kaimage.png` no seu site, você pode adicioná-la na seção "Sobre Nós", ao lado do texto descritivo.
+
+Vou substituir a imagem placeholder (`https://via.placeholder.com/200`) pela sua imagem `kaimage.png`.
+
+**Importante:**
+Certifique-se de que o arquivo `kaimage.png` esteja na **mesma pasta** do seu arquivo HTML para que ele seja carregado corretamente. Se a imagem estiver em uma subpasta (ex: `imagens/kaimage.png`), você precisará ajustar o caminho no código (`src="imagens/kaimage.png"`).
+
+Aqui está o código HTML completo atualizado:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gonçalves & Barbosa Advogados Associados</title>
+    
+    <style>
+        /* Estilos Gerais */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #f4f4f4;
+            --text-color: #333;
+            --heading-color: #1a1a1a;
+            --accent-color: #a3b1c9;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .section-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navbar Fixa */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Seção Hero (Bem-vindo) */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://via.placeholder.com/1500x1000') no-repeat center center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin: 20px 0 30px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background-color: #8c9bad;
+            transform: translateY(-3px);
+        }
+
+        /* Seções de Conteúdo */
+        .content-section {
+            padding: 80px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .content-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        .bg-light {
+            background-color: #fcfcfc;
+        }
+
+        /* Seção Sobre */
+        .profile-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 30px;
+            text-align: left;
+            align-items: center;
+        }
+
+        .profile-photo {
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 200px; /* Garante que a imagem não seja muito grande */
+            height: auto;
+        }
+
+        /* Áreas de Atuação */
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .area-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .area-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .area-card h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-top: 0;
+        }
+
+        /* Contato */
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--heading-color);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Animações (JavaScript irá adicionar a classe 'visible') */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animações de Entrada (Seção Hero) */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slide-up {
+            animation: slideUp 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes scaleUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .animate-scale-up {
+            animation: scaleUp 0.8s ease-out 1s forwards;
+            opacity: 0;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 20px;
+            }
+            .nav-links {
+                margin-top: 10px;
+                justify-content: center;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-photo {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Gonçalves & Barbosa</div>
+            <ul class="nav-links">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#areas">Áreas de Atuação</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-in">Excelência e Estratégia Jurídica</h1>
+                <p class="hero-subtitle animate-slide-up">Soluções inteligentes para desafios complexos.</p>
+                <a href="#contact" class="btn animate-scale-up">Agende uma Consulta</a>
+            </div>
+        </section>
+
+        <section id="about" class="content-section">
+            <div class="section-container animate-on-scroll">
+                <h2>Sobre Nós</h2>
+                <div class="profile-card">
+                    <img src="kaimage.png" alt="Gonçalves & Barbosa Advogados Associados" class="profile-photo">
+                    <p>Fundado em 2016, com uma visão inovadora e atual, o escritório Gonçalves & Barbosa Advogados tem o propósito de realizar serviços jurídicos, contando com uma equipe de colaboradores e parceiros especializados e atuantes em todo o território nacional. Estamos criando uma jornada baseada na cumplicidade com nossos clientes. Acompanhando de perto cada passo, cada processo, cada dúvida ou surpresa no desenrolar de cada caso nós fortalecemos nossos vínculos com nossos clientes ao demonstrar que eles são parte essencial do que somos e que as questões importantes para eles são igualmente importantes para nós. Essa rede de relacionamento transparente e crescimento mútuo é o principal alicerce do que temos construído e buscamos reforçar no futuro. Compromisso, dedicação, transparência e respeito são valores nos quais acreditamos não apenas enquanto empresa, mas também enquanto pessoas e são, acima de qualquer outra, coisa o principal serviço que nosso escritorio tem para oferecer. Com base em uma estrutura sólida e buscando sempre o mais alto padrão técnico jurídico, nosso escritório tem se empenhado, ao longo do tempo, em conquistar o respeito da comunidade jurídica e a admiração daqueles que adotam uma roupagem mais tradicional e prezam pelo padrão jurídico, cultivado há anos. No decorrer dos anos, alçamos voos maiores em busca de uma expansão territorial, pois inicialmente nossa atuação se restringia aos Estados do Paraná, Rio de Janeiro, Minas Gerais e São Paulo. Atualmente, dispomos de um corpo jurídico completo em todos os estados, voltados à assessoria de operações e suporte jurídico a projetos corporativos, religiosos e individuais. Por isso, que seguimos o lema “Se você não cuidar do seu cliente, o seu concorrente irá”- Bob Hooey. O escritório tem como objetivo principal atender às expectativas dos nossos clientes com lealdade e excelência. Se você busca competência, ética e profissionalismo saiba que tudo isso faz parte do nosso lema, com isso oferecemos soluções jurídicas eficazes e efetivas de forma ágil, de modo a proporcionar a sua satisfação e segurança, proporcionando-lhe uma economia de tempo e também de recursos financeiros.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="areas" class="content-section bg-light">
+            <div class="section-container animate-on-scroll">
+                <h2>Áreas de Atuação</h2>
+                <div class="areas-grid">
+                    <div class="area-card animate-on-scroll">
+                        <h3>Direito de Família e Sucessões</h3>
+                        <p>Assessoria completa em divórcios, partilha de bens, inventários e planejamento sucessório, com foco na solução de conflitos e na proteção do patrimônio familiar.</p>
+                    </div>
+                    <div class="area-card animate-on-scroll">
+                        <h3>Direito Contratual</h3>
+                        <p>Análise e elaboração de contratos diversos, garantindo segurança jurídica e prevenção de litígios. Atuamos em contratos civis, imobiliários e comerciais.</p>
+                    </div>
+                    <div class="area-card animate-on-scroll">
+                        <h3>Direito Imobiliário</h3>
+                        <p>Consultoria e atuação em compra e venda de imóveis, locações, usucapião, regularização de propriedades e questões de condomínio.</p>
+                    </div>
+                    <div class="area-card animate-on-scroll">
+                        <h3>Direito Empresarial</h3>
+                        <p>Apoio jurídico para empresas de todos os portes, desde a constituição até a reestruturação societária, fusões e aquisições.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <div class="section-container animate-on-scroll">
+                <h2>Contato</h2>
+                <div class="contact-info">
+                    <p>Telefone: <strong>(11) 99999-9999</strong></p>
+                    <p>E-mail: <strong>contato@goncalvesbarbosa.com.br</strong></p>
+                    <p>Endereço: <strong>Rua da Justiça, 123 - Centro, São Paulo - SP</strong></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Gonçalves & Barbosa Advogados. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2 // A animação é ativada quando 20% do elemento está visível
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
+```
