@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gonçalves & Barbosa Advogados Associados</title>
+  <meta name="description" content="Excelência e estratégia jurídica com atuação nacional. Ética, privacidade e resultados.">
+  <meta name="theme-color" content="#0f172a" />
+  <meta property="og:title" content="Gonçalves & Barbosa Advogados Associados">
+  <meta property="og:description" content="Excelência e estratégia jurídica com atuação nacional.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="kaimage.png">
+  <meta property="og:locale" content="pt_BR">
+
+  <style>
+    :root{
+      --bg:#0b1020;--bg-page:#f6f7fb;--surface:#fff;
+      --ink:#1f2937;--ink-soft:#4b5563;
+      --brand:#0ea5e9;--brand-2:#1e293b;--accent:#94a3b8;
+      --radius:16px;--shadow:0 6px 28px rgba(2,6,23,.12);
+      --w:min(1120px,88vw);--nav-h:64px
+    }
+    *,*:before,*:after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h)+16px)}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;color:var(--ink);background:var(--bg-page);line-height:1.6;overflow-x:hidden}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:var(--w);margin-inline:auto;padding:24px 0}
+    .section{padding:clamp(44px,5vw,80px) 0}
+    h1,h2,h3{color:#0f172a;line-height:1.2}
+    h2{font-size:clamp(1.6rem,2.5vw,2.3rem);margin:0 0 24px;position:relative}
+    h2::after{content:"";display:block;width:64px;height:3px;margin-top:10px;background:linear-gradient(90deg,var(--brand),transparent 70%)}
+    p{margin:0 0 1rem;color:var(--ink-soft)}
+
+    /* Page enter animation */
+    .page-enter{opacity:0;transform:translateY(8px);filter:saturate(.9) blur(.4px)}
+    .page-enter.page-ready{opacity:1;transform:none;filter:none;transition:opacity .5s ease, transform .5s ease, filter .5s ease}
+
+    .skip-link{position:absolute;left:-999px;top:-999px;background:#fff;color:#000;padding:8px 12px;border-radius:8px;box-shadow:var(--shadow)}
+    .skip-link:focus{left:12px;top:12px;z-index:10000}
+
+    /* NAV */
+    .nav{position:sticky;top:0;height:var(--nav-h);z-index:1000;backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.86);border-bottom:1px solid rgba(15,23,42,.06)}
+    .nav__inner{height:100%;display:flex;align-items:center;justify-content:space-between;width:var(--w);margin:0 auto}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--brand-2);letter-spacing:.2px;white-space:nowrap}
+    .logo{width:28px;height:28px}
+    .menu{display:flex;gap:14px;margin:0;padding:0;list-style:none;flex-wrap:wrap}
+    .menu a{color:#0f172a;font-weight:600;padding:8px 10px;border-radius:10px}
+    .menu a:hover{background:rgba(14,165,233,.12);text-decoration:none}
+    .burger{display:none;width:40px;height:40px;border:0;background:transparent;cursor:pointer;border-radius:10px}
+    .burger:focus-visible{outline:2px solid var(--brand)}
+    .burger span,.burger:before,.burger:after{content:"";display:block;width:22px;height:2px;margin:5px auto;background:#0f172a;transition:transform .3s ease,opacity .3s ease}
+    .menu-wrap{display:contents}
+    @media (max-width:860px){
+      .burger{display:inline-block}
+      .menu-wrap{position:fixed;inset:var(--nav-h) 0 auto 0;background:rgba(255,255,255,.98);border-bottom:1px solid rgba(15,23,42,.06);transform:translateY(-8px);opacity:0;pointer-events:none;transition:.25s ease}
+      .menu{flex-direction:column;padding:16px 20px}
+      .menu a{padding:12px}
+      .menu-wrap.open{transform:translateY(0);opacity:1;pointer-events:auto}
+      .burger.active:before{transform:translateY(7px) rotate(45deg)}
+      .burger.active:after{transform:translateY(-7px) rotate(-45deg)}
+      .burger.active span{opacity:0}
+    }
+
+    /* HERO (retângulo azul ainda menor) */
+    .hero{
+      background:
+        radial-gradient(900px 420px at 80% -10%, rgba(14,165,233,.20), transparent 60%),
+        radial-gradient(600px 360px at 0% 10%, rgba(148,163,184,.20), transparent 60%),
+        linear-gradient(180deg,#0b1020 0%,#0e162f 60%,#101827 100%);
+      color:#e5e7eb
+    }
+    .hero__wrap{
+      min-height:clamp(300px, 46vh, 480px); /* ficou mais compacto */
+      display:grid;place-items:center;text-align:center;padding:18px 0
+    }
+    .hero h1{font-size:clamp(1.7rem,3.8vw,2.8rem);margin:0 0 10px;color:#f8fafc;text-shadow:0 8px 28px rgba(2,6,23,.45)}
+    .hero p{font-size:clamp(1rem,1.4vw,1.15rem);color:#cbd5e1;margin-bottom:20px}
+    .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-block;border:0;cursor:pointer;padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,var(--brand) 0%,#38bdf8 100%);color:#031525;font-weight:800;box-shadow:0 10px 30px rgba(14,165,233,.35);transform:translateZ(0);transition:transform .2s ease,filter .2s ease}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .btn--ghost{background:rgba(255,255,255,.08);color:#e2e8f0;font-weight:700;border:1px solid rgba(148,163,184,.25)}
+
+    /* GRID / SURFACES */
+    .surface{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .grid{display:grid;gap:clamp(18px,2.4vw,28px);grid-template-columns:repeat(12,1fr)}
+    .col-6{grid-column:span 6}.col-7{grid-column:span 7}.col-5{grid-column:span 5}.col-12{grid-column:span 12}
+    @media (max-width:960px){.col-5,.col-6,.col-7{grid-column:span 12}}
+
+    /* SOBRE */
+    .about-card{padding:clamp(20px,2.4vw,36px);align-items:center}
+    .about-img{width:clamp(120px,22vw,200px);aspect-ratio:1/1;border-radius:50%;object-fit:cover;box-shadow:0 12px 30px rgba(2,6,23,.18)}
+
+    /* ÁREAS */
+    .areas .item{padding:20px;border:1px solid rgba(15,23,42,.06);border-radius:14px;background:#fff;transition:transform .25s ease,box-shadow .25s ease}
+    .areas .item:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+    .areas h3{margin:6px 0 8px;font-size:1.05rem;color:var(--brand-2)}
+
+    /* UNIDADES (apenas São Paulo) */
+    .unit{padding:20px}
+    .unit h3{margin:4px 0 6px}
+    .unit p{margin:0}
+
+    /* CONTATO / PRIVACIDADE / RESPONSABILIDADE */
+    .contact p{font-size:1.05rem}
+    .policy-list{margin:0;padding-left:18px}
+    .policy-list li{margin:.4rem 0;color:var(--ink-soft)}
+
+    footer{background:#0f172a;color:#cbd5e1;text-align:center;padding:26px 14px;border-top:1px solid rgba(148,163,184,.2)}
+
+    /* Items reveal on scroll */
+    .reveal{opacity:0;transform:translateY(18px);will-change:transform,opacity}
+    .reveal.is-visible{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .page-enter{opacity:1;transform:none;filter:none}
+      .reveal,.reveal.is-visible{transition:none!important;transform:none!important;opacity:1!important}
+      .btn{transition:none}
+    }
+  </style>
+</head>
+<body class="page-enter">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo principal</a>
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Principal">
+    <div class="nav__inner">
+      <div class="brand">
+        <!-- NOVO LOGO: monograma GB entrelaçado (mais clássico) -->
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <linearGradient id="gbgrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#38bdf8"/>
+            </linearGradient>
+          </defs>
+          <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#gbgrad)"/>
+          <!-- G -->
+          <path d="M40 20a12 12 0 1 0 0 24h4" fill="none" stroke="#0b1020" stroke-width="4" stroke-linecap="round"/>
+          <!-- B (duas semiluas ligadas ao traço vertical comum) -->
+          <path d="M24 18v28m0 0h7a7 7 0 0 0 0-14h-7m7 0a7 7 0 1 0 0-14h-7" fill="none" stroke="#0b1020" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Gonçalves &amp; Barbosa</span>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+
+      <div class="menu-wrap" id="menuWrap">
+        <ul class="menu" id="menu">
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#areas">Áreas de atuação</a></li>
+          <li><a href="#unidades">Unidades</a></li>
+          <li><a href="#responsabilidade">Responsabilidade Social</a></li>
+          <li><a href="#privacidade">Privacidade</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO (mais compacto) -->
+  <header class="hero">
+    <div class="container hero__wrap">
+      <div>
+        <h1 class="reveal">Excelência e Estratégia Jurídica</h1>
+        <p class="reveal" style="transition-delay:.08s">Soluções inteligentes, confidenciais e com atuação nacional.</p>
+        <div class="cta">
+          <a class="btn reveal" style="transition-delay:.14s" href="#contato">Agendar Consulta</a>
+          <a class="btn btn--ghost reveal" style="transition-delay:.2s" href="#areas">Ver Áreas</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <h2 class="reveal">Sobre nós</h2>
+        <div class="surface about-card grid reveal">
+          <div class="col-5" style="display:flex;justify-content:center">
+            <img src="kaimage.png" alt="Foto institucional do escritório Gonçalves & Barbosa" class="about-img" loading="lazy" decoding="async">
+          </div>
+          <div class="col-7">
+            <p>Fundado em 2016, o Gonçalves &amp; Barbosa Advogados alia rigor técnico a uma visão contemporânea do Direito. Atuação nacional, transparência e foco em resultados.</p>
+            <p>Privacidade é princípio: tratamos dados com segurança, acesso restrito e finalidade clara.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÁREAS -->
+    <section id="areas" class="section" aria-labelledby="ttl-areas">
+      <div class="container">
+        <h2 id="ttl-areas" class="reveal">Áreas de atuação</h2>
+        <div class="grid areas">
+          <article class="item col-6 surface reveal">
+            <h3>Família e Sucessões</h3>
+            <p>Divórcios, partilhas, inventários e planejamento sucessório com sigilo e humanidade.</p>
+          </article>
+          <article class="item col-6 surface reveal">
+            <h3>Contratos</h3>
+            <p>Elaboração e revisão de contratos civis, imobiliários e comerciais, com prevenção de riscos.</p>
+          </article>
+          <article class="item col-6 surface reveal">
+            <h3>Imobiliário</h3>
+            <p>Compra e venda, locações, regularização, usucapião e demandas condominiais.</p>
+          </article>
+          <article class="item col-6 surface reveal">
+            <h3>Empresarial</h3>
+            <p>Constituição, governança, reestruturações, fusões e aquisições, e consultoria recorrente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIDADES (apenas São Paulo) -->
+    <section id="unidades" class="section">
+      <div class="container">
+        <h2 class="reveal">Unidades</h2>
+        <div class="grid">
+          <div class="surface unit col-12 reveal">
+            <h3>São Paulo (SP)</h3>
+            <p>Atendimento mediante agendamento. Híbrido: presencial e remoto.</p>
+            <p><a href="#contato">Solicitar agendamento</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESPONSABILIDADE SOCIAL -->
+    <section id="responsabilidade" class="section">
+      <div class="container">
+        <h2 class="reveal">Responsabilidade Social</h2>
+        <div class="surface reveal" style="padding:22px">
+          <p>Projetos pro bono, educação jurídica básica e ações que promovem acesso à justiça. Respeito à diversidade e responsabilidade ambiental nas operações.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACIDADE -->
+    <section id="privacidade" class="section">
+      <div class="container">
+        <h2 class="reveal">Privacidade</h2>
+        <div class="surface reveal" style="padding:22px">
+          <p>Tratamos dados pessoais com base na necessidade, adequação e segurança, restringindo acessos e adotando controles técnicos e organizacionais.</p>
+          <ul class="policy-list">
+            <li>Coleta mínima, estritamente necessária à prestação dos serviços jurídicos.</li>
+            <li>Canais seguros de comunicação e armazenamento em ambientes controlados.</li>
+            <li>Direitos do titular assegurados: confirmação, acesso, correção e eliminação quando aplicável.</li>
+            <li>Compartilhamento restrito a parceiros e autoridades quando necessário ao caso.</li>
+          </ul>
+          <p>Para solicitações sobre dados pessoais, utilize o <a href="#contato">canal de contato</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="section contact" aria-labelledby="ttl-contato">
+      <div class="container">
+        <h2 id="ttl-contato" class="reveal">Contato</h2>
+        <div class="surface reveal" style="padding:22px">
+          <p>E-mail: <a href="mailto:karina@kgb.adv.br"><strong>karina@kgb.adv.br</strong></a></p>
+          <p>Atuação Nacional • Atendimento remoto e presencial mediante agendamento.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="padding:0">
+      <small>&copy; <span id="y"></span> Gonçalves &amp; Barbosa Advogados. Todos os direitos reservados.</small>
+    </div>
+  </footer>
+
+  <script>
+    // remove no-js e animação de entrada
+    document.documentElement.classList.remove('no-js');
+    window.addEventListener('load', ()=> document.body.classList.add('page-ready'));
+
+    // ano footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // menu mobile
+    const burger = document.getElementById('burger');
+    const wrap   = document.getElementById('menuWrap');
+    const links  = document.querySelectorAll('#menu a');
+    function toggleMenu(force){
+      const willOpen = force ?? !wrap.classList.contains('open');
+      wrap.classList.toggle('open', willOpen);
+      burger.classList.toggle('active', willOpen);
+      burger.setAttribute('aria-expanded', String(willOpen));
+    }
+    burger.addEventListener('click', ()=>toggleMenu());
+    links.forEach(a=>a.addEventListener('click', ()=>toggleMenu(false)));
+
+    // animações on-scroll
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduced && 'IntersectionObserver' in window){
+      const io = new IntersectionObserver((entries,obs)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+        });
+      },{threshold:.14});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el=>el.classList.add('is-visible'));
+    }
+  </script>
+</body>
+</html>
